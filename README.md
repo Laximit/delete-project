@@ -5,20 +5,28 @@ Shell script to delete programming projects based on the chosen language.
 
 ## Install
 Clone the repository with the following command
-``` Bash
+```sh
 git clone https://github.com/Laximit/delete-project.git
 cd delete-project
 ```
-After that edit the script to add your Workspace and Text Editor/IDE
 
-``` Bash
-WORKSPACE='(your workspace)'
-DEFAULT_EDITOR='(your editor)'
+Then edit the script to add your Workspace:
+
+```sh
+WORKSPACE='workspace'
 ```
+
 Example:
-``` Bash
+```sh
 WORKSPACE='Desktop/Workspace'
-DEFAULT_EDITOR='code .'
 ```
 ## Usage
-Simply run with ```sh delcode.sh```
+Run the script using thw following order:
+```sh
+sh delcode.sh <language> <name>
+```
+
+If you forget the order just type:
+```sh
+sh delcode.sh -h
+```

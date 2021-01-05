@@ -1,50 +1,26 @@
 #!/bin/zsh
 
-WORKSPACE='(your workspace)'
+WORKSPACE='workspace'
 
-clear
-echo 'delete project - language'
-echo '************'
-echo '-python'
-echo '-csharp'
-echo '-html'
-echo '-shell'
-echo '-react'
-echo '-reactnative'
-echo '-java'
-echo '************'
-read LANGUAGE
+cd ~
+cd $WORKSPACE
 
-case $LANGUAGE in
-  python | csharp | html | shell | react | reactnative | java)
-    cd ~
-    cd $WORKSPACE/$LANGUAGE
-  ;;
-  *)
-    echo 'Please choose a valid language :)'
-    exit
-  ;;
-esac
+if [ $1 = "-h" ] ; then
+  echo 'Usage:'
+  echo 'help            sh delcode.sh -h'
+  echo 'delete-project  sh delcode.sh <language> <name>'
+elif [ ! -e $1 ] ; then
+  echo 'Please choose a valid language :)'
+else
+  cd $1
+fi
 
-clear
-echo 'delete project - name'
-echo '************'
-ls
-echo '************'
-read NAME
-
-clear
-echo 'delete project - confirm'
-echo '************'
-echo $LANGUAGE '-' $NAME
-echo '************'
+echo 'Confirm?'
 read CONFIRM
 
-case $CONFIRM in
-  yes)
-    rm -rf $NAME
-  ;;
-  *)
-    exit
-  ;;
-esac
+if [ $CONFIRM = "yes" ] ; then
+  rm -rf $2
+else
+  exit
+fi
+
